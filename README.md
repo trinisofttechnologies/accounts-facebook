@@ -1,18 +1,26 @@
 # Summary
-If you want to install a modified version of meteor login with facebook, here's a way.
-I doesn't work with meteor add packagename, instead follow the bellow steps
-
-# Getting started
-1. clone the repo, in your package folder
-2. then do ```meteor add trinsofttechnologies:accounts-facebook```
-3. replace the phonegap package with your own modified version
-4. You are good to go
+Login with facebook on web and phonegap
+# Requirement
+1. Create your own custom package in your app package folder and add facebook cordova plugin dependencies
+```
+Cordova.depends({
+  // Facebook Login Plugin
+  'phonegap-facebook-plugin': 'https://github.com/Wizcorp/phonegap-facebook-plugin/tarball/c0f8da97a1d65397ada73e958dafed3aeef2e491'
+});
+```
+2. Add facebook appID in your mobile-config.js file
+```
+App.configurePlugin('phonegap-facebook-plugin', {
+  APP_ID: '123456789',
+  APP_NAME: 'MyAwesomeApp'
+});
+```
+3. add package ```meteor add trinsofttechnologies:accounts-facebook```
 
 # Usage
 ```javascript
-Meteor.loginAsFacebook(function(err){
+Meteor.loginWithFacebook(facebookAppId, ["public_profile"], function(err){
     // it will either logs you in with browser or native facebook app
     // your code
 });
-
 ```
