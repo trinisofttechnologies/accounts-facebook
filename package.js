@@ -1,22 +1,25 @@
 Package.describe({
   name: 'trinisofttechnologies:accounts-facebook',
-  version: '0.0.1',
-  // Brief, one-line summary of the package.
-  summary: '',
-  // URL to the Git repository containing the source code for this package.
-  git: '',
-  // By default, Meteor will default to using README.md for documentation.
-  // To avoid submitting documentation, set this field to null.
-  documentation: 'README.md'
+  git: 'https://github.com/trinisofttechnologies/accounts-facebook.git',
+  version: '1.0.0',
+  summary: 'Login with facebook using cordova native sdk.'
 });
 
-Package.onUse(function(api) {
-  api.versionsFrom('1.1.0.3');
-  api.addFiles('accounts-facebook.js');
+Npm.depends({
 });
 
-Package.onTest(function(api) {
-  api.use('tinytest');
-  api.use('trinisofttechnologies:accounts-facebook');
-  api.addFiles('accounts-facebook-tests.js');
+// Cordova.depends({
+//   'phonegap-facebook-plugin': 'https://github.com/Wizcorp/phonegap-facebook-plugin/tarball/c0f8da97a1d65397ada73e958dafed3aeef2e491'
+// });
+
+Package.on_use(function (api) {
+  api.use('accounts-base');
+
+  api.add_files('common.js', ['client', 'server']);
+  api.add_files('client.js', ['client']);
+  api.add_files('server.js', ['server']);
+
+  // if(api.export){
+  //   api.export("Roles",['client', 'server']);
+  // }
 });
