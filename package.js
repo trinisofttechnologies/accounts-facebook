@@ -1,7 +1,7 @@
 Package.describe({
   name: 'trinisofttechnologies:accounts-facebook',
   git: 'https://github.com/trinisofttechnologies/accounts-facebook.git',
-  version: '1.0.0',
+  version: '1.0.1',
   summary: 'Login with facebook using cordova native sdk.'
 });
 
