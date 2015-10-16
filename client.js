@@ -67,7 +67,6 @@ var createUser = function(opt, callback){
   try{
     var users = {};
     var user = opt.user;
-    console.log(user)
     var authResponse = opt.authResponse;
     if(!authResponse)
         authResponse = {};
